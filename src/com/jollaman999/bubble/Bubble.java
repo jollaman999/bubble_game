@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 @Getter
 @Setter
-public class Bubble extends JLabel {
+public class Bubble extends JLabel implements Moveable {
     // 의존성 콤포지션
     private Player player;
 
@@ -52,5 +52,25 @@ public class Bubble extends JLabel {
         setSize(50, 50);
 
         state = 0;
+    }
+
+    @Override
+    public void left() {
+
+    }
+
+    @Override
+    public void right() {
+
+    }
+
+    @Override
+    public void up() {
+
+    }
+
+    @Override
+    public void down() {
+
     }
 }
