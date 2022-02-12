@@ -22,7 +22,7 @@ public class BubbleFrame extends JFrame {
     }
 
     private void initObject() {
-        backgroundMap = new JLabel(new ImageIcon("image/BackgroundMap.png"));
+        backgroundMap = new JLabel(new ImageIcon("image/BackgroundMapService.png"));
         setContentPane(backgroundMap); // JPanel 을 JLabel 로 대체함
 
         player = new Player();

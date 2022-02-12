@@ -26,13 +26,21 @@ public class BackgroundPlayerService implements Runnable {
             // 색상 확인
             Color leftColor = new Color(image.getRGB(player.getX() -10, player.getY() + 25));
             Color rightColor = new Color(image.getRGB(player.getX() + 50 + 15, player.getY() + 25));
+            // -2가 나온다는 뜻은 바닥에 색깔이 없다는 것
+            int bottomColor = image.getRGB(player.getX() + 10, player.getY() + 50 + 5) // -1
+                    + image.getRGB(player.getX() + 50 - 10, player.getY() + 50 + 5); // -1
+//            System.out.println("바텀: " + bottomColor);
 
+            if (bottomColor != -2) {
+//                System.out.println("바닥에 충돌함");
+                player.setDown(false);
+            }
             if (leftColor.getRed() == 255 && leftColor.getGreen() == 0 && leftColor.getBlue() == 0) {
-                System.out.println("왼쪽 벽에 충돌함");
+//                System.out.println("왼쪽 벽에 충돌함");
                 player.setLeftWallCrash(true);
                 player.setLeft(false);
             } else if (rightColor.getRed() == 255 && rightColor.getGreen() == 0 && rightColor.getBlue() == 0) {
-                System.out.println("오른쪽 벽에 충돌함");
+//                System.out.println("오른쪽 벽에 충돌함");
                 player.setRightWallCrash(true);
                 player.setRight(false);
             } else {

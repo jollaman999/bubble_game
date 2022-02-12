@@ -25,8 +25,8 @@ public class Player extends JLabel implements Moveable {
     private boolean rightWallCrash;
 
     // 플레이어 이동 속도
-    private final int SPEED = 5;
-    private final int JUMPSPEED = 4; // up, down
+    private final int SPEED = 4;
+    private final int JUMPSPEED = 2; // up, down
 
     private ImageIcon playerR, playerL;
 
@@ -123,11 +123,11 @@ public class Player extends JLabel implements Moveable {
     public void down() {
         down = true;
         new Thread(()-> {
-            for (int i = 0; i < 130/JUMPSPEED; i++) {
+            while (down) {
                 y += JUMPSPEED;
                 setLocation(x, y);
                 try {
-                    Thread.sleep(10);
+                    Thread.sleep(3);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
