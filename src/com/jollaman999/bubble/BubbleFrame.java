@@ -1,9 +1,10 @@
 package com.jollaman999.bubble;
 
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class BubbleFrame extends JFrame {
     private JLabel backgroundMap;
@@ -12,6 +13,7 @@ public class BubbleFrame extends JFrame {
     public BubbleFrame() {
         initObject();
         initSetting();
+        initListener();
         setVisible(true);
     }
 
@@ -25,10 +27,28 @@ public class BubbleFrame extends JFrame {
 
         player = new Player();
         add(player);
-//        backgroundMap.setSize(100, 100);
-//        backgroundMap.setLocation(100, 100);
-//        backgroundMap.setSize(1000, 600);
-//        add(backgroundMap); // JFrame 에 JLabel 을 그린다.
+    }
+
+    private void initListener() {
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println(e.getKeyCode());
+
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_LEFT:
+                        player.left();
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        player.right();
+                        break;
+                    case KeyEvent.VK_UP:
+                        player.up();
+                        break;
+                    // 떨어지는 건 있어도 벽을 뚫고 내려올 수는 없기
+                }
+            }
+        });
     }
 
     private void initSetting() {

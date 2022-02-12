@@ -1,10 +1,19 @@
 package com.jollaman999.bubble;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
-public class Player extends JLabel {
+// class Player -> new 가능한 애들!! 게임에 존재할 수 있음. (추상 메서드를 가질 수 없다.)
+public class Player extends JLabel implements Moveable {
+    // 위치 상태
     private int x;
     private int y;
+
+    // 움직임 상태
+    private boolean left;
+    private boolean right;
+    private boolean up;
+    private boolean down;
 
     private ImageIcon playerR, playerL;
 
@@ -22,8 +31,37 @@ public class Player extends JLabel {
         x = 55;
         y = 535;
 
+        left = false;
+        right = false;
+        up = false;
+        down = false;
+
         setIcon(playerR);
         setSize(50, 50);
         setLocation(x, y);
+    }
+
+    @Override
+    public void left() {
+        setIcon(playerL);
+        x -= 10;
+        setLocation(x, y);
+    }
+
+    @Override
+    public void right() {
+        setIcon(playerR);
+        x += 10;
+        setLocation(x, y);
+    }
+
+    @Override
+    public void up() {
+
+    }
+
+    @Override
+    public void down() {
+
     }
 }
