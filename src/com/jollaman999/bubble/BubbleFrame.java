@@ -22,7 +22,7 @@ public class BubbleFrame extends JFrame {
     }
 
     private void initObject() {
-        backgroundMap = new JLabel(new ImageIcon("image/BackgroundMapService.png"));
+        backgroundMap = new JLabel(new ImageIcon("image/BackgroundMap.png"));
         setContentPane(backgroundMap); // JPanel 을 JLabel 로 대체함
 
         player = new Player();
@@ -49,10 +49,13 @@ public class BubbleFrame extends JFrame {
                         }
                         break;
                     case KeyEvent.VK_UP:
-                    case KeyEvent.VK_SPACE:
                         if (!player.isUp() && !player.isDown()) {
                             player.up();
                         }
+                        break;
+                    case KeyEvent.VK_SPACE:
+                        Bubble bubble = new Bubble(player);
+                        add(bubble);
                         break;
                     // 떨어지는 건 있어도 벽을 뚫고 내려올 수는 없기
                 }

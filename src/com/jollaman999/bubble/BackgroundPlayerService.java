@@ -55,7 +55,7 @@ public class BackgroundPlayerService implements Runnable {
             }
 
             try {
-                Thread.sleep(10);
+                Thread.sleep(7);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
