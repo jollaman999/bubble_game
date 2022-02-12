@@ -49,7 +49,9 @@ public class BubbleFrame extends JFrame {
                         }
                         break;
                     case KeyEvent.VK_UP:
-                        player.up();
+                        if (!player.isUp() && !player.isDown()) {
+                            player.up();
+                        }
                         break;
                     // 떨어지는 건 있어도 벽을 뚫고 내려올 수는 없기
                 }
