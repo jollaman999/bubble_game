@@ -121,6 +121,10 @@ public class Player extends JLabel implements Moveable {
 
     @Override
     public void down() {
+        if (down == false) {
+
+        }
+
         down = true;
         new Thread(()-> {
             while (down) {

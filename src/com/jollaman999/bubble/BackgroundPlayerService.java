@@ -34,7 +34,13 @@ public class BackgroundPlayerService implements Runnable {
             if (bottomColor != -2) {
 //                System.out.println("바닥에 충돌함");
                 player.setDown(false);
+            } else {
+                if (!player.isUp() && !player.isDown()) {
+//                    System.out.println("다운 실행됨");
+                    player.down();
+                }
             }
+
             if (leftColor.getRed() == 255 && leftColor.getGreen() == 0 && leftColor.getBlue() == 0) {
 //                System.out.println("왼쪽 벽에 충돌함");
                 player.setLeftWallCrash(true);
