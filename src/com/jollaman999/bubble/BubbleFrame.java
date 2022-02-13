@@ -15,6 +15,7 @@ public class BubbleFrame extends JFrame {
     private BubbleFrame mContext = this;
     private JLabel backgroundMap;
     private Player player;
+    private Enemy enemy;
 
     public BubbleFrame() {
         initObject();
@@ -33,6 +34,8 @@ public class BubbleFrame extends JFrame {
 
         player = new Player(mContext);
         add(player);
+        enemy = new Enemy(mContext);
+        add(enemy);
     }
 
     private void initListener() {
