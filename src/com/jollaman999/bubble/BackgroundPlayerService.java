@@ -24,7 +24,7 @@ public class BackgroundPlayerService implements Runnable {
     public void run() {
         while (true) {
             // 색상 확인
-            Color leftColor = new Color(image.getRGB(player.getX() -10, player.getY() + 25));
+            Color leftColor = new Color(image.getRGB(player.getX() - 10, player.getY() + 25));
             Color rightColor = new Color(image.getRGB(player.getX() + 50 + 15, player.getY() + 25));
             // -2가 나온다는 뜻은 바닥에 색깔이 없다는 것
             int bottomColor = image.getRGB(player.getX() + 10, player.getY() + 50 + 5) // -1
