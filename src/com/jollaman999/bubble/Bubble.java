@@ -35,7 +35,6 @@ public class Bubble extends JLabel implements Moveable {
         this.player = mContext.getPlayer();
         initObject();
         initSetting();
-        initThread();
     }
 
     private void initObject() {
@@ -58,16 +57,6 @@ public class Bubble extends JLabel implements Moveable {
         setSize(50, 50);
 
         state = 0;
-    }
-
-    private void initThread() {
-        new Thread(() -> {
-            if (player.getPlayerWay() == PlayerWay.LEFT) {
-                left();
-            } else {
-                right();
-            }
-        }).start();
     }
 
     @Override
@@ -138,9 +127,9 @@ public class Bubble extends JLabel implements Moveable {
         try {
             Thread.sleep(3000);
             setIcon(bomb);
-            Thread.sleep(1);
+            Thread.sleep(500);
             mContext.remove(this); // BubbleFrame 의 Bubble 이 메모리에서 사라진다.
-            //mContext.repaint();
+            mContext.repaint();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

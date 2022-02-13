@@ -31,7 +31,7 @@ public class BubbleFrame extends JFrame {
         backgroundMap = new JLabel(new ImageIcon("image/BackgroundMap.png"));
         setContentPane(backgroundMap); // JPanel 을 JLabel 로 대체함
 
-        player = new Player();
+        player = new Player(mContext);
         add(player);
     }
 
@@ -60,8 +60,7 @@ public class BubbleFrame extends JFrame {
                         }
                         break;
                     case KeyEvent.VK_SPACE:
-                        Bubble bubble = new Bubble(mContext);
-                        add(bubble);
+                        player.attack();
                         break;
                     // 떨어지는 건 있어도 벽을 뚫고 내려올 수는 없기
                 }

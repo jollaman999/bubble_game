@@ -11,4 +11,5 @@ public interface Moveable {
     public abstract void right();
     public abstract void up();
     default public void down() {}; // 자바 높은 버젼 부터 나온 문법. default 인터페이스도 몸체가 있는 메서드를 만들 수 있다.
+    default public void attack() {};
 }
