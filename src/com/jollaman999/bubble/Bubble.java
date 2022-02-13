@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 @Setter
 public class Bubble extends JLabel implements Moveable {
     // 의존성 콤포지션
+    private BubbleFrame mContext;
     private Player player;
     private BackgroundBubbleService backgroundBubbleService;
 
@@ -29,8 +30,9 @@ public class Bubble extends JLabel implements Moveable {
     private ImageIcon bubbled; // 적을 가둔 물방울
     private ImageIcon bomb; // 물방울이 터진상태
 
-    public Bubble(Player player) {
-        this.player = player;
+    public Bubble(BubbleFrame mContext) {
+        this.mContext = mContext;
+        this.player = mContext.getPlayer();
         initObject();
         initSetting();
         initThread();
@@ -76,6 +78,7 @@ public class Bubble extends JLabel implements Moveable {
             setLocation(x, y);
 
             if (backgroundBubbleService.leftWall()) {
+                left = false;
                 break;
             }
 
@@ -96,6 +99,7 @@ public class Bubble extends JLabel implements Moveable {
             setLocation(x, y);
 
             if (backgroundBubbleService.rightWall()) {
+                right = false;
                 break;
             }
 
@@ -111,11 +115,12 @@ public class Bubble extends JLabel implements Moveable {
     @Override
     public void up() {
         up = true;
-        while (true) {
+        while (up) {
             y--;
             setLocation(x, y);
 
             if (backgroundBubbleService.topWall()) {
+                up = false;
                 break;
             }
 
@@ -124,6 +129,20 @@ public class Bubble extends JLabel implements Moveable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+        clearBubble(); // 천장에 버블이 도착하고 나서 3포후에 메모리에서 소멸
+    }
+
+    // 행위 -> clear (동사) -> bubble (목적어)
+    private void clearBubble() {
+        try {
+            Thread.sleep(3000);
+            setIcon(bomb);
+            Thread.sleep(1);
+            mContext.remove(this); // BubbleFrame 의 Bubble 이 메모리에서 사라진다.
+            //mContext.repaint();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

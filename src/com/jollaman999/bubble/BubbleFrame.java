@@ -1,12 +1,18 @@
 package com.jollaman999.bubble;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+@Getter
+@Setter
 public class BubbleFrame extends JFrame {
+    private BubbleFrame mContext = this;
     private JLabel backgroundMap;
     private Player player;
 
@@ -54,7 +60,7 @@ public class BubbleFrame extends JFrame {
                         }
                         break;
                     case KeyEvent.VK_SPACE:
-                        Bubble bubble = new Bubble(player);
+                        Bubble bubble = new Bubble(mContext);
                         add(bubble);
                         break;
                     // 떨어지는 건 있어도 벽을 뚫고 내려올 수는 없기
