@@ -1,5 +1,9 @@
-package com.jollaman999.bubble;
+package com.jollaman999.bubble.component;
 
+import com.jollaman999.bubble.service.BackgroundEnemyService;
+import com.jollaman999.bubble.BubbleFrame;
+import com.jollaman999.bubble.state.EnemyWay;
+import com.jollaman999.bubble.Moveable;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +20,7 @@ public class Enemy extends JLabel implements Moveable {
     private int y;
 
     // 플레이어의 방향
-    private  EnemyWay enemyWay;
+    private EnemyWay enemyWay;
 
     // 움직임 상태
     private boolean left;

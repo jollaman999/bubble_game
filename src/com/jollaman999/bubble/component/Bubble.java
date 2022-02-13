@@ -1,5 +1,8 @@
-package com.jollaman999.bubble;
+package com.jollaman999.bubble.component;
 
+import com.jollaman999.bubble.service.BackgroundBubbleService;
+import com.jollaman999.bubble.BubbleFrame;
+import com.jollaman999.bubble.Moveable;
 import lombok.Getter;
 import lombok.Setter;
 

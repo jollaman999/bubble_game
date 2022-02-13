@@ -1,5 +1,9 @@
-package com.jollaman999.bubble;
+package com.jollaman999.bubble.component;
 
+import com.jollaman999.bubble.service.BackgroundPlayerService;
+import com.jollaman999.bubble.BubbleFrame;
+import com.jollaman999.bubble.Moveable;
+import com.jollaman999.bubble.state.PlayerWay;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,7 +24,7 @@ public class Player extends JLabel implements Moveable {
     private int y;
 
     // 플레이어의 방향
-    private  PlayerWay playerWay;
+    private PlayerWay playerWay;
 
     // 움직임 상태
     private boolean left;

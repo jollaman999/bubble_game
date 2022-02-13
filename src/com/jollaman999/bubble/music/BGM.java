@@ -1,4 +1,4 @@
-package com.jollaman999.bubble;
+package com.jollaman999.bubble.music;
 
 import javax.sound.sampled.*;
 import java.io.File;

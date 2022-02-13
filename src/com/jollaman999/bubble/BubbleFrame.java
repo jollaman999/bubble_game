@@ -1,5 +1,8 @@
 package com.jollaman999.bubble;
 
+import com.jollaman999.bubble.component.Enemy;
+import com.jollaman999.bubble.component.Player;
+import com.jollaman999.bubble.music.BGM;
 import lombok.Getter;
 import lombok.Setter;
 

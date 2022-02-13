@@ -1,10 +1,11 @@
-package com.jollaman999.bubble;
+package com.jollaman999.bubble.service;
+
+import com.jollaman999.bubble.component.Enemy;
 
 import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.List;
 
 // 메인쓰레드 바쁨 - 키보드 이벤트 처리하기 바쁨.
 // 백그라운드에서 계속 관찰

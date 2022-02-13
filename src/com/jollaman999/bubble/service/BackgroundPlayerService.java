@@ -1,4 +1,7 @@
-package com.jollaman999.bubble;
+package com.jollaman999.bubble.service;
+
+import com.jollaman999.bubble.component.Bubble;
+import com.jollaman999.bubble.component.Player;
 
 import javax.imageio.ImageIO;
 import java.awt.Color;
